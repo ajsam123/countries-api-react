@@ -8,6 +8,11 @@ const App = () => {
   let storedTheme;
   storedTheme = localStorage.getItem("theme") || "light";
   const [darkMode, setDarkMode] = useState(storedTheme === "dark");
+  function Loader() {
+    return (
+      <div className="w-6 h-6 border-3 border-black rounded-full animate-spin border-r-transparent place-self-center dark:border-white dark:border-r-transparent"></div>
+    );
+  }
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -39,6 +44,7 @@ const App = () => {
               darkMode={darkMode}
               setDarkMode={setDarkMode}
               toggleTheme={toggleTheme}
+              Loader={Loader}
             />
           }
         />
@@ -50,6 +56,7 @@ const App = () => {
               setCountries={setCountries}
               darkMode={darkMode}
               toggleTheme={toggleTheme}
+              Loader={Loader}
             />
           }
         />

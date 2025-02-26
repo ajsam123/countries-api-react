@@ -23,6 +23,7 @@ function CountryApp({
   darkMode,
   setDarkMode,
   toggleTheme,
+  Loader,
 }) {
   // onfocus(searchCountry);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +43,7 @@ function CountryApp({
 
   // const [error, setError] = useState("");
   useEffect(() => {
-    async function fetchMovies() {
+    async function fetchCountries() {
       try {
         setIsLoading(true);
         const res = await fetch("https://restcountries.com/v3.1/all");
@@ -57,7 +58,7 @@ function CountryApp({
         console.error(err.message);
       }
     }
-    fetchMovies();
+    fetchCountries();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(countries);
@@ -90,9 +91,3 @@ function CountryApp({
 }
 
 export default CountryApp;
-
-function Loader() {
-  return (
-    <div className="w-6 h-6 border-3 border-black rounded-full animate-spin border-r-transparent place-self-center dark:border-white dark:border-r-transparent"></div>
-  );
-}
