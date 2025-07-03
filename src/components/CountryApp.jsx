@@ -47,7 +47,7 @@ function CountryApp({
       try {
         setIsLoading(true);
         const res = await fetch(
-          "https://restcountries.com/v3.1/all?fields=cca3,name,flags,region"
+          "https://restcountries.com/v3.1/all?fields=cca3,name,flags,region,capital"
         );
 
         if (!res.ok)
