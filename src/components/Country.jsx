@@ -20,16 +20,19 @@ const Country = ({ countries = [] }) => {
             />
             <div className="flex flex-col pl-6 p-4">
               <h1 className="font-bold mb-2 text-[18px]">
-                {country.name.common}
+                {country.name.common || "No name"}
               </h1>
               <span className="">
-                Population: {country.population.toLocaleString}
+                Population: {country.population?.toLocaleString() || "N/A"}
                 <span className="text-dark-gray">
-                  {country.population.toLocaleString()}
+                  {country.population?.toLocaleString()}
                 </span>
               </span>
               <span>
-                Region: <span className="text-dark-gray">{country.region}</span>
+                Region:{" "}
+                <span className="text-dark-gray">
+                  {country.region || "N/A"}
+                </span>
               </span>
               <span>
                 Capital:{" "}

@@ -46,7 +46,9 @@ function CountryApp({
     async function fetchCountries() {
       try {
         setIsLoading(true);
-        const res = await fetch("https://restcountries.com/v3.1/all");
+        const res = await fetch(
+          "https://restcountries.com/v3.1/all?fields=cca3,name,flags,region"
+        );
 
         if (!res.ok)
           throw new Error("Something went wrong with fetching countries");

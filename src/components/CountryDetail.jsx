@@ -17,14 +17,16 @@ const CountryDetail = ({ darkMode, toggleTheme, Loader }) => {
       try {
         setIsLoading(true);
         const res = await fetch(
-          `https://restcountries.com/v3.1/alpha?codes=${id}`
+          `https://restcountries.com/v3.1/alpha/${id}?fields=cca3,name,flags,population,region,subregion,capital,tld,borders`
         );
+
+        console.log(res);
 
         if (!res.ok)
           throw new Error("Something went wrong with fetching countries");
 
         const data = await res.json();
-        setCountriesEach(data);
+        setCountriesEach(Array.isArray(data) ? data : [data]);
         setIsLoading(false);
       } catch (err) {
         console.error(err.message);
